@@ -3,6 +3,7 @@ using Mink.Services.Contracts.Interfaces;
 
 namespace Mink.Api.Controllers
 {
+    [Route("r")]
     [ApiController]
     public class RedirectController : ControllerBase
     {
@@ -13,7 +14,7 @@ namespace Mink.Api.Controllers
             _uriService = uriService;
         }
 
-        [HttpGet("r/{key}")]
+        [HttpGet("{key}")]
         public IActionResult Resolve(string key)
         {
             var resolve = _uriService.ResolveKey(key);

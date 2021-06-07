@@ -4,29 +4,35 @@ import './UriMinifier.css'
 function UriMinifier() {
 
   const inputUriRef = useRef<HTMLInputElement>(null);
+  const outputUriRef = useRef<HTMLInputElement>(null);
 
-  function handleMinifyClick() {
+  async function handleMinifyClick() {
 
     const inputUri = inputUriRef.current?.value
-
-    fetch('https://localhost:5001/uri', {
+    const response = await window.fetch('https://localhost:5001/uri', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-        // 'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({originUri: inputUri, minifiedUri: ""}),
-    })
-      // .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
+      body: JSON.stringify({originUri: inputUri}),
+    });
+
+    const {data, errors} = await response.json();
+    // console.log(data, errors);
+    if (response.ok) {
+      if (outputUriRef.current)
+        outputUriRef.current.value = `https://localhost:5001/r/${data.minifiedUriKey}`;
+    }
   }
 
   return (
     <div>
+      <label>Your uri: </label>
       <input ref={inputUriRef} type="text" />
       <button onClick={handleMinifyClick}>Minify</button>
+      <br/>
+      <label>Short uri: </label>
+      <input ref={outputUriRef} type="text" />
     </div>
   );
 }
