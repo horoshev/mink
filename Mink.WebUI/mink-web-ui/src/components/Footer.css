@@ -1,0 +1,16 @@
+﻿.footer {
+    background-color: #2a2a2a;
+}
+
+.footer .container {
+    height: 5rem;
+    margin: auto;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 15rem auto 5rem;
+    grid-gap: 1rem;
+}
+
+.container {
+    max-width: 75rem;
+}

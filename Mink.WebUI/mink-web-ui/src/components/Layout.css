@@ -1,0 +1,17 @@
+﻿body {
+    background-color: #0e961f;
+}
+
+.content {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: #f1eed9;
+}
+
+.layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 6rem auto 6rem;
+}

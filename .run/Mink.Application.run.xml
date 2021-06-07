@@ -1,0 +1,7 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Mink.Application" type="CompoundRunConfigurationType">
+    <toRun name="Mink.WebUI" type="js.build_tools.npm" />
+    <toRun name="Mink.Api" type="LaunchSettings" />
+    <method v="2" />
+  </configuration>
+</component>
